@@ -6,10 +6,10 @@
 </template>
 
 <script>
-//import vuelazyload from "../../dist/vue-lazy-load.esm.js"
-//import "../../dist/vue-lazy-load.css"
-import vuelazyload from "@publishvue/vuelazyload"
-import "@publishvue/vuelazyload/dist/vue-lazy-load.css"
+import vuelazyload from "../../dist/vue-lazy-load.esm.js"
+import "../../dist/vue-lazy-load.css"
+//import vuelazyload from "@publishvue/vuelazyload"
+//import "@publishvue/vuelazyload/dist/vue-lazy-load.css"
 export default {
   components:{
     vuelazyload
