@@ -5,6 +5,7 @@
   "public": true,
   "description": "",
   "main": "dist/vue-lazy-load.esm.js",
+  "cjs": "dist/vue-lazy-load.ssr.js",
   "module": "dist/vue-lazy-load.esm.js",
   "unpkg": "dist/vue-lazy-load.min.js",
   "style": "dist/vue-lazy-load.css",

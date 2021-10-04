@@ -72,7 +72,7 @@ if (!argv.format || argv.format === 'cjs') {
     ...baseConfig,
     output: {
       compact: true,
-      file: pkg.main,
+      file: pkg.cjs,
       format: 'cjs',
       name: 'VueLazyLoad',
       exports: 'named',
