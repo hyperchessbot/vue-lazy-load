@@ -1,66 +1,32 @@
 <template>
-  <div class="vue-lazy-load" :style="{
-    minWidth: '1px',
-    minHeight: '1px'
-  }">
-    <slot v-if="isIntersected" />
-    <!-- Content that is loaded as a placeholder until it comes into view -->
-    <slot v-if="!isIntersected" name="placeholder" />
+  <div class="vuelazyload">
+    {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    /**
-     * See InetersectionOberserver rootMargin [docs](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options)
-     */
-    rootMargin: {
+  props: {    
+    msg: {
       type: String,
-      default: '0px 0px 0px 0px',
-    },
-    /**
-     * See InetersectionOberserver treshold [docs](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options)
-     */
-    threshold: {
-      type: [Number, Array],
-      default: 0,
-    },
+      default: 'vue lazy load',
+    },    
   },
   data() {
-    return {
-      isIntersected: false,
-      observer: null,
+    return {      
     }
   },
-  mounted() {
-    if ('IntersectionObserver' in window) {
-      this.observe()
-    } else {
-      this.isIntersected = true
-    }
+  mounted() {    
   },
-  beforeDestroy() {
-    this.unobserve()
+  beforeDestroy() {    
   },
-  methods: {
-    observe() {
-      const { rootMargin, threshold } = this
-      const config = { root: undefined, rootMargin, threshold }
-      this.observer = new IntersectionObserver(this.onIntersection, config)
-      this.observer.observe(this.$el)
-    },
-    onIntersection(entries) {
-      this.isIntersected = entries.some((entry) => entry.intersectionRatio > 0)
-      if (this.isIntersected) {
-        this.unobserve()
-      }
-    },
-    unobserve() {
-      if ('IntersectionObserver' in window) {
-        this.observer.unobserve(this.$el)
-      }
-    },
+  methods: {    
   },
 }
 </script>
+
+<style>
+.vuelazyload{
+  font-size: 30px;
+}
+</style>
